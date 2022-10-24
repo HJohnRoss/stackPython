@@ -1,8 +1,5 @@
 # 1
 
-from distutils.command.build_scripts import first_line_re
-
-
 x = [[5, 2, 3], [10, 8, 9]]
 students = [
     {'first_name':  'Michael', 'last_name': 'Jordan'},
