@@ -67,5 +67,5 @@ class Pet:
 
 
 pet = Ninja("John", "Ross", "Cookie", "nibbles", "Mila", Pet(
-    "Mila", "woof", "fetch", 100, 100)).walk().feed().bathe()
+    "Mila", "woof", "fetch", 100, 100).sleep()).walk().feed().bathe()
 print(pet.pet_name)
