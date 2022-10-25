@@ -29,6 +29,7 @@ class BankAccount:
     def transfer(self, amount, user):
         user.make_deposit(amount)
         self.withdraw(amount)
+        print(f"Sent {user.name}: ${amount}")
         return self
 
 
@@ -59,7 +60,7 @@ class User:
         return self
 
 
-user1 = User("John", "email@test.com", 2137)
-user2 = User("Jeffery", "gmail.com", 421)
+user1 = User("John", "email@test.com", 12)
+user2 = User("Jeffery", "gmail.com", 23)
 user1.display_user_balance()
-user2.money_transfer(213, user1).display_user_balance()
+user2.money_transfer(10, user1).display_user_balance()
