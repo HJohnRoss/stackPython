@@ -1,6 +1,3 @@
-from cmath import log
-
-
 class BankAccount:
 
     def __init__(self, int_rate, balance):
@@ -29,12 +26,18 @@ class BankAccount:
             return self
         return self
 
+    def transfer(self, amount, user):
+        user.make_deposit(amount)
+        self.withdraw(amount)
+        return self
+
 
 class User:
 
     def __init__(self, name, email, balance):
         self.name = name
         self.email = email
+        self.bal = balance
         self.account = BankAccount(0.02, balance)
 
     def make_deposit(self, amount):
@@ -51,6 +54,12 @@ class User:
         self.account.display_account_info()
         return self
 
+    def money_transfer(self, amount, user):
+        self.account.transfer(amount, user)
+        return self
 
-user1 = User("John ", "email@test.com", 2095)
-user1.make_deposit(19).make_withdrawal(1005).display_user_balance()
+
+user1 = User("John", "email@test.com", 2137)
+user2 = User("Jeffery", "gmail.com", 421)
+user1.display_user_balance()
+user2.money_transfer(213, user1).display_user_balance()
