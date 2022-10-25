@@ -29,15 +29,9 @@ class BankAccount:
             return self
         return self
 
-# bank1 = BankAccount(0.2, 10)
-# bank1.deposit(1).deposit(2).deposit(2).withdraw(
-#     20).yield_interest().display_account_info()
-# bank2 = BankAccount(0.02, 1004)
-# bank2.deposit(1632).deposit(1875).withdraw(782).withdraw(976).withdraw(
-#     703).withdraw(202).yield_interest().display_account_info()
-
 
 class User:
+
     def __init__(self, name, email, balance):
         self.name = name
         self.email = email
