@@ -1,3 +1,15 @@
+class Player:
+    def __init__(self, info):
+        self.name = info['name']
+        self.age = info['age']
+        self.position = info['position']
+        self.team = info['team']
+
+    def __repr__(self):
+        display = f"Player: {self.name}, {self.age} y/o, pos: {self.position}, team: {self.team}"
+        return display
+
+
 kevin = {
     "name": "Kevin Durant",
     "age": 34,
@@ -17,23 +29,9 @@ kyrie = {
     "team": "Brooklyn Nets"
 }
 
-
-class Player:
-    def __init__(self, name, age, position, team):
-        self.name = name
-        self.age = age
-        self.position = position
-        self.team = team
-
-
-player1 = Player(kevin["name"], kevin["age"],
-                 kevin["position"], kevin["team"])
-print([player1.name, player1.age, player1.position, player1.team])
-
-player2 = Player(jason["name"], jason["age"],
-                 jason["position"], jason["team"])
-print([player2.name, player2.age, player2.position, player2.team])
-
-player3 = Player(kyrie["name"], kyrie["age"],
-                 kyrie["position"], kyrie["team"])
-print([player3.name, player3.age, player3.position, player3.team])
+player1 = Player(kevin)
+player2 = Player(jason)
+player3 = Player(kyrie)
+print(player1)
+print(player2)
+print(player3)
