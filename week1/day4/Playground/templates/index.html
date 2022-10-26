@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground</title>
+  <style>
+    #header {
+      text-align: center;
+      margin-top: 120px;
+      font-size: 42pt;
+    }
+
+    .d-flex {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      background-color: #9EC5F7;
+      border: black 2px solid;
+      border-radius: 20px;
+      height: 200px;
+      width: 200px;
+    }
+
+    /* .bg {
+      background-color: ; how do i use jinja here
+    } */
+
+
+  </style>
+</head>
+
+<body>
+  <h1 id="header">Welcome</h1>
+
+
+  <div class="d-flex">
+    {% for i in range(0, num) %}
+        <div class="box bg"></div>
+    {% endfor %}
+  </div>
+</body>
+
+</html>
