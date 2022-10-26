@@ -11,6 +11,8 @@ app = Flask(__name__)
 
 # how to plug in classes into divs
 
+
+# you can add muliple routs to 1 function! (set var's = something)
 @app.route('/play')
 @app.route('/play/')
 @app.route('/play/<int:num>')
