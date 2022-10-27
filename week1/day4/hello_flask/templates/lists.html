@@ -15,6 +15,23 @@
         <li>{{ num }}</li>
     {% endfor %}
   </ul>
+  <h2>Students</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for students in students %}
+        <tr>
+          <td>{{ students['name'] }}</td>
+          <td>{{ students['age'] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </body>
 
 </html>
