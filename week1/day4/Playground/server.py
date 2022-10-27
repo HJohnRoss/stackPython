@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 # def main():
 #     return render_template("index.html", num=3) #cant set num = to something or 
-  # or an if statement to have 3 show for /play and for loop for else
+#   or an if statement to have 3 show for /play and for loop for else
   
 # def addBox(num):
 #     return render_template("index.html", num=num)

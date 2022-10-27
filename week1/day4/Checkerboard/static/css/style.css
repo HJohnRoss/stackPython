@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+h1 {
+  font-size: 32pt;
+  text-align: center;
+  width: 700px;
+  padding: 40px;
+}
+
+.header {
+  margin: 80px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+}
