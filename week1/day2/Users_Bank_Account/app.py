@@ -38,7 +38,6 @@ class User:
     def __init__(self, name, email, balance):
         self.name = name
         self.email = email
-        self.bal = balance
         self.account = BankAccount(0.02, balance)
 
     def make_deposit(self, amount):
