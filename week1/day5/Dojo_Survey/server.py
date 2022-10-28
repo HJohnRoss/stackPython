@@ -7,11 +7,20 @@ app.secret_key = 'keep it secret, keep it safe'
 def main():
     return render_template("index.html")
 
-@app.route("/result")
+
+@app.route("/result", methods=['POST'])
 def showResult():
-    return render_template("result.html", name1=request.args['name1'],
-                           location=request.args['location'], message=request.args['message'],
-                           language=request.args['language'])
+    session['name1'] = request.form['name1']
+    session['location'] = request.form['location']
+    session['language'] = request.form['language']
+    session['message'] = request.form['message']
+    return redirect('/show')
+
+
+@app.route('/show')
+def show():
+    return render_template("result.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

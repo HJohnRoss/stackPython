@@ -14,10 +14,10 @@
   <div class="bg-dark text-light container p-3" style="width: 600px;">
     <h1 class="text-success">Submitted Info</h1>
     <div>
-      <p>Name: <span class="text-info">{{ name1 }}</span></p>
-      <p>Location: <span class="text-info">{{ location }}</span></p>
-      <p>Favorite Language: <span class="text-info">{{ language }}</span></p>
-      <p>Comment: <span class="text-info">{{ message }}</span></p>
+      <p>Name: <span class="text-info">{{ session['message'] }}</span></p>
+      <p>Location: <span class="text-info">{{ session['location'] }}</span></p>
+      <p>Favorite Language: <span class="text-info">{{ session['language'] }}</span></p>
+      <p>Comment: <span class="text-info">{{ session['message'] }}</span></p>
       <a href="/" class="btn btn-success">Go Back</a>
     </div>
   </div>
