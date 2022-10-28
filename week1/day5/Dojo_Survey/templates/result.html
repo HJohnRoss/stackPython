@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>Your Dojo Survey</title>
+</head>
+
+<body class="bg-secondary">
+  <div class="bg-dark text-light container p-3" style="width: 600px;">
+    <h1 class="text-success">Submitted Info</h1>
+    <div>
+      <p>Name: {{ name1 }}</p>
+      <p>Location: {{ location }}</p>
+      <p>Favorite Language: {{ language }}</p>
+      <p>Comment: {{ message }}</p>
+      <a href="/" class="btn btn-success">Go Back</a>
+    </div>
+  </div>
+</body>
+
+</html>
