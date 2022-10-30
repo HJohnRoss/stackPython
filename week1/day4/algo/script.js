@@ -57,6 +57,7 @@ function decodeStr(str) {
     if (isNaN(str[i]) == true) {
       newStr += str[i - 1]
     }
+    return newStr
   }
 }
 
