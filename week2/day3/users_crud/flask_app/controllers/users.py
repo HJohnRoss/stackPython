@@ -21,7 +21,7 @@ def add():
     return redirect('/')
 
 # =============== GET ONE ================
-@app.route('/show_user')
+@app.route('/show_user/<int:one_user>')
 def show_user(one_user):
     data = {
       'id': one_user
