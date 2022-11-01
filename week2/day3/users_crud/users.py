@@ -1,5 +1,4 @@
-from sqlite3 import connect
-from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 
 
 class User:
