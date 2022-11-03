@@ -10,22 +10,23 @@
   <title>All Dojos</title>
 </head>
 
-<body class="d-flex bg-dark text-light">
+<body class="d-flex bg-dark text-light gap-5">
   <div>
     <h1>New Dojo</h1>
-    <form action="">
+    <form action="/dojo/create_dojo" method="post">
       <label>Name: </label>
+      <input name="name" type="text">
       <button>Create</button>
     </form>
   </div>
   <div>
     <h1>All Dojos</h1>
-    <div>
-      {% for %}
-      <a href=""></a> <!-- JINJA LATER -->
+    <div class="d-flex flex-column bg-light text-primary p-2">
+      {% for dojo in dojos %}
+      <a href="/dojo/{{ dojo.id }}/show">{{ dojo.name }}</a> <!-- JINJA LATER -->
       {% endfor %}
     </div>
-    <a href="">Add Ninja</a>
+    <a href="/new_ninja">Add Ninja</a>
   </div>
 
 

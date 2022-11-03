@@ -10,11 +10,11 @@
     <h1>Edit User {{ one_user.id }}</h1>
     <form action="/edit_user/success/{{ one_user.id }}" method="post">
       <p>First Name:</p>
-      <input placeholder="{{ one_user.first_name }}" name="first_name" type="text">
+      <input value="{{ one_user.first_name }}" name="first_name" type="text">
       <p>Last Name:</p>
-      <input placeholder="{{ one_user.last_name }}" name="last_name" type="text">
+      <input value="{{ one_user.last_name }}" name="last_name" type="text">
       <p>Email:</p>
-      <input placeholder="{{ one_user.email }}" name="email" type="text">
+      <input value="{{ one_user.email }}" name="email" type="text">
       <button>Update</button>
       <a href="/show_user/{{ one_user.id }}">Show User</a>
     </form>

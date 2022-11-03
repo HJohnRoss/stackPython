@@ -11,15 +11,19 @@
 </head>
 
 <body>
-  <form action="">
+  <form action="/new_ninja/create" method="post">
     <label>Dojo: </label>
-    <select name="">
-      <option></option> <!-- jinja here later -->
+    <select name="dojo_id">
+      {% for dojo in one_dojo %}
+        <option value="{{ dojo.id }}">{{ dojo.name }}</option> <!-- jinja here later -->
+      {% endfor %}
     </select>
     <label>First Name: </label>
-    <input type="text">
+    <input name="first_name" type="text">
+    <label>Last Name: </label>
+    <input name="last_name" type="text">
     <label>Age: </label>
-    <input type="text">
+    <input name="age" type="text">
     <button>Create</button>
   </form>
   <a href="/">Home</a>
