@@ -11,6 +11,7 @@ class Ninja:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
+    # GET ALL NINJAS
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM ninjas"
@@ -20,6 +21,7 @@ class Ninja:
             ninjas.append(cls(ninja))
         return ninjas
 
+    # INSERT INTO NINJAS
     @classmethod
     def insert(cls, data):
         query = """

@@ -11,7 +11,7 @@ class Dojo:
         self.updated_at = data['updated_at']
         self.ninjas = []
 
-
+    # GET ALL METHOD
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM dojos;"
@@ -21,6 +21,8 @@ class Dojo:
             dojos.append(cls(dojo))
         return dojos
       
+      
+    # CREATING A NEW DOJO
     @classmethod
     def insert(cls, data):
         query = """
@@ -30,6 +32,8 @@ class Dojo:
         result = connectToMySQL(DATABASE).query_db(query, data)
         return result
       
+      
+    # GETTING A NINJA (JOIN)
     @classmethod
     def get_ninjas(cls, data):
         query = """
@@ -38,6 +42,7 @@ class Dojo:
         WHERE dojos.id = %(id)s;
         """
         result = connectToMySQL(DATABASE).query_db(query, data)
+        # THIS IS SENDING THE NINJA JOIN TO THE NINJAS CLASS TO RENDER IT
         dojo = cls(result[0])
         for row in result:
             ninjainfo = {
@@ -48,5 +53,6 @@ class Dojo:
                 'created_at' : row['ninjas.created_at'],
                 'updated_at' : row['ninjas.updated_at'],
             }
+            # 
             dojo.ninjas.append(Ninja(ninjainfo))
         return dojo
