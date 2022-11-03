@@ -1,5 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from .ninja_model import Ninja
+from flask_app import Ninja
 from flask_app import DATABASE
 
 
@@ -44,15 +44,15 @@ class Dojo:
         result = connectToMySQL(DATABASE).query_db(query, data)
         # THIS IS SENDING THE NINJA JOIN TO THE NINJAS CLASS TO RENDER IT
         dojo = cls(result[0])
-        for row in result:
+        for data in result:
             ninjainfo = {
-                'id' : row['ninjas.id'],
-                'first_name' : row['first_name'],
-                'last_name' : row['last_name'],
-                'age' : row['age'],
-                'created_at' : row['ninjas.created_at'],
-                'updated_at' : row['ninjas.updated_at'],
+                'id' : data['ninjas.id'],
+                'first_name' : data['first_name'],
+                'last_name' : data['last_name'],
+                'age' : data['age'],
+                'created_at' : data['ninjas.created_at'],
+                'updated_at' : data['ninjas.updated_at'],
             }
-            # 
+            # PUSHING INTO NINJAS
             dojo.ninjas.append(Ninja(ninjainfo))
         return dojo
