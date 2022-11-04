@@ -27,8 +27,8 @@
             <ul>
                 {% for one_book in all_books %}
                 <li>
-                    <a href="/">{{ one_book.title }}</a> <!-- jinja and for loop here -->
-                    <a href="/">{{ one_book.num_of_pages }}</a> <!-- jinja and for loop here -->
+                    <a href="/books/favorites/{{ one_book.id }}">{{ one_book.title }}</a> <!-- jinja and for loop here -->
+                    <a href="/books/favorites/{{ one_book.id }}">{{ one_book.num_of_pages }}</a> <!-- jinja and for loop here -->
                 </li>
                 {% endfor %}
 

@@ -12,17 +12,17 @@
 
 <body>
     <div>
-        <h1>Title: </h1> <!-- jinja for author name -->
+        <h1>Title: {{ one_book.title }}</h1>
         <table>
             <tr>
                 <th>Title</th>
                 <th># of pages</th>
             </tr>
+            {% for author in one_book.authors_favorited %} <!-- this is going to itterate threw the author dict -->
             <tr>
-                <!-- for loop start -->
-                <td></td>
-                <td></td>
-            </tr> <!-- for loop end -->
+                <td>{{ author.name }}</td>
+            </tr>
+            {% endfor %}
         </table>
     </div>
     <div>
@@ -30,10 +30,13 @@
         <form action="" method="post">
             <label>Author</label>
             <select name="">
+                {% for author in all_authors %}
+                {% if author not in one_book.authors_favorited %}
                 <option>
-                    <!-- for loop start -->
-                    <a href=""></a> <!-- jinja for href(author.id) and for info(author.name) -->
-                </option> <!-- for loop end -->
+                    {{ author.name }}
+                </option>
+                {% endif %}
+                {% endfor %}
             </select>
         </form>
         <a href="/">Home</a>

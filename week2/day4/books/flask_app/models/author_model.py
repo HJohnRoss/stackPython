@@ -25,3 +25,12 @@ class Author:
         for author in result:
             authors.append(cls(author))
         return authors
+    
+    @classmethod
+    def get_some(cls):
+        query = "SELECT * FROM authors"
+        result = connectToMySQL(DATABASE).query_db(query)
+        authors = []
+        for author in result:
+            authors.append(cls(author))
+        return authors

@@ -51,7 +51,7 @@ class Dojo:
                 'last_name' : data['last_name'],
                 'age' : data['age'],
                 'created_at' : data['ninjas.created_at'],
-                'updated_at' : data['ninjas.updated_at'],
+                'updated_at' : data['ninjas.updated_at']
             }
             # PUSHING INTO NINJAS
             dojo.ninjas.append(Ninja(ninjainfo))
