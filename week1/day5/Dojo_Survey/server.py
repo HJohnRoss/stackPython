@@ -1,3 +1,4 @@
+from dojo_model import Dojo
 from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
 app.secret_key = 'keep it secret, keep it safe'
@@ -10,11 +11,11 @@ def main():
 
 @app.route("/result", methods=['POST'])
 def showResult():
-    session['name1'] = request.form['name1']
+    session['name'] = request.form['name']
     session['location'] = request.form['location']
     session['language'] = request.form['language']
-    session['message'] = request.form['message']
-    return redirect('/show')
+    session['comment'] = request.form['comment']
+    return redirect('/show', form_info=Dojo.insert())
 
 
 @app.route('/show')

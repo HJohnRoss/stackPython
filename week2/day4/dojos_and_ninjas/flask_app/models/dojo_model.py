@@ -20,9 +20,9 @@ class Dojo:
         for dojo in result:
             dojos.append(cls(dojo))
         return dojos
-      
-      
+
     # CREATING A NEW DOJO
+
     @classmethod
     def insert(cls, data):
         query = """
@@ -31,9 +31,9 @@ class Dojo:
         """
         result = connectToMySQL(DATABASE).query_db(query, data)
         return result
-      
-       
+
     # GETTING A NINJA (JOIN)
+
     @classmethod
     def get_ninjas(cls, data):
         query = """
@@ -46,12 +46,12 @@ class Dojo:
         dojo = cls(result[0])
         for data in result:
             ninjainfo = {
-                'id' : data['ninjas.id'],
-                'first_name' : data['first_name'],
-                'last_name' : data['last_name'],
-                'age' : data['age'],
-                'created_at' : data['ninjas.created_at'],
-                'updated_at' : data['ninjas.updated_at']
+                'id': data['ninjas.id'],
+                'first_name': data['first_name'],
+                'last_name': data['last_name'],
+                'age': data['age'],
+                'created_at': data['ninjas.created_at'],
+                'updated_at': data['ninjas.updated_at']
             }
             # PUSHING INTO NINJAS
             dojo.ninjas.append(Ninja(ninjainfo))

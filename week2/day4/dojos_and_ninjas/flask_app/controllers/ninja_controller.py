@@ -10,8 +10,8 @@ def create_ninja():
     ninja_model.Ninja.insert(request.form)
     # REDIRECTING TO THE DOJO PAGE WHERE THE NEW NINJA IS LOCATED
     return redirect(f'/dojo/{request.form["dojo_id"]}/show')
-  
-  # RENDERING THE PAGE FOR CREATING A NINJA
+
+# RENDERING THE PAGE FOR CREATING A NINJA
 @app.route('/new_ninja')
 def new_ninja():
     # GETTING ALL THE INFO FROM THE DOJOS FROM THE MAIN PAGE
