@@ -32,7 +32,7 @@ class Dojo:
         result = connectToMySQL(DATABASE).query_db(query, data)
         return result
       
-      
+       
     # GETTING A NINJA (JOIN)
     @classmethod
     def get_ninjas(cls, data):

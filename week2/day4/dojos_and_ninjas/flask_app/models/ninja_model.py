@@ -7,7 +7,7 @@ class Ninja:
         self.id = data['id']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
-        self.age = data['age']
+        self.age = data['age'] # why do i need to take out the forein key here
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
