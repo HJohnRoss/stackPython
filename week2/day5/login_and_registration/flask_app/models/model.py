@@ -43,7 +43,7 @@ class User:
         SELECT * FROM users WHERE id = %(id)s
         """
         result = connectToMySQL(DATABASE).query_db(query, data)
-        return cls(result[0])
+        return result
 
 
     @staticmethod

@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <h1>welcome {{ logged_user.first_name }} {{ logged_user.last_name }}</h1>
+    <!-- why do i have to do [0]? -->
+    <h1>welcome {{ logged_user[0]['first_name'] }} {{ logged_user[0]['last_name'] }}</h1>
     <a href="/" class="btn btn-warning">Home</a>
 
 
