@@ -8,4 +8,12 @@ bcrypt = Bcrypt(app)
 
 @app.route('/')
 def main():
+    if 'user_id' in session:
+        return redirect('/recipes/show_all')
     return render_template("login.html")
+
+@app.route('/recipes/show_all')
+def all_recipes():
+    if not 'user_id' in session:
+        return redirect('/')
+    return render_template('all_recipes.html')

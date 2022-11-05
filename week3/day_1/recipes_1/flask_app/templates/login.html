@@ -15,7 +15,10 @@
     <div class="d-flex gap-5 justify-content-center">
         <div>
             <h2>Register</h2>
-            <form action="">
+            {% for message in get_flashed_messages(category_filter=['reg']) %}
+            <p class="text-danger">{{ message }}</p>
+            {% endfor %}
+            <form action="/register/user" method="post">
                 <div class="mb-3">
                     <p>First_name: </p>
                     <input name="first_name" type="text">
@@ -33,7 +36,10 @@
         </div>
         <div>
             <h2>Log In</h2>
-            <form action="">
+            {% for message in get_flashed_messages(category_filter=['login']) %}
+            <p class="text-danger">{{ message }}</p>
+            {% endfor %}
+            <form action="/login/user" method="post">
                 <div class="mb-3">
 
                     <p>Email: </p>
