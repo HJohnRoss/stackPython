@@ -18,7 +18,7 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.recipe = []
-        self.user = []
+        self.user = None
 
     @classmethod
     def get_all(cls):
@@ -63,40 +63,38 @@ class User:
         return cls(result[0])
 
     # get one user
-    @classmethod
-    def get_user_recipes(cls):
-        query = """
-        SELECT * FROM users
-        JOIN recipes ON users.id = recipes.user_id 
-        """
-        result = connectToMySQL(DATABASE).query_db(query)
-        if not result:
-            return False
-        recipes = cls(result[0])
-        for row in result:
-            data = [{
-                'id': row['recipes.id'],
-                'name': row['name'],
-                'under': row['under'],
-                'instructions': row['instructions'],
-                'description': row['description'],
-                'date_made': row['date_made'],
-                'user_id': row['user_id']
-            },
-                {
-                'id': row['id'],
-                'first_name': row['first_name'],
-                'last_name': row['last_name'],
-                'email': row['email'],
-                'password': row['password'],
-                'created_at': row['created_at'],
-                'updated_at': row['updated_at']
-            }]
-            recipes.recipe.append(recipe_model.Recipe(data[0]))
-            recipes.recipe.append(User(data[1]))
-            # user_recipe.append(recipe_model.Recipe(recipe_data))
-            # user_recipe.append(User(user_data))
-        return recipes
+    # @classmethod
+    # def get_user_recipes(cls):
+    #     query = """
+    #     SELECT * FROM recipes
+    #     JOIN users ON users.id = recipes.user_id 
+    #     """
+    #     result = connectToMySQL(DATABASE).query_db(query)
+    #     if not result:
+    #         return False
+    #     recipes = cls(result[0])
+    #     for row in result:
+    #         data = {
+    #             **row,
+    #             'id' : row['users.id'],
+    #             'created_at' : row['created_at']
+    #         }
+    #         #     {
+    #         #     'id': row['id'],
+    #         #     'first_name': row['first_name'],
+    #         #     'last_name': row['last_name'],
+    #         #     'email': row['email'],
+    #         #     'password': row['password'],
+    #         #     'created_at': row['created_at'],
+    #         #     'updated_at': row['updated_at']
+    #         # }]
+    #         this_user = recipe_model.Recipe(data)
+    #         recipes.user = this_user
+    #         recipes.recipe.append(recipes)
+    #         # recipes.user.append(User(data[1]))
+    #         # user_recipe.append(recipe_model.Recipe(recipe_data))
+    #         # user_recipe.append(User(user_data))
+    #     return recipes.recipe
 
     # user validation
     @staticmethod

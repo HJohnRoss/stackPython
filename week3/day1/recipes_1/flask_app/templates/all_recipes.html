@@ -22,22 +22,31 @@
     <table class="table">
         <tr>
             <th>Name</th>
-            <th>Under 30 mins</th>
+            <th>Under</th>
             <th>Posted By</th>
             <th>Actions</th>
         </tr>
-        
-        {% for recipe in users.recipe %}
+        {% for recipe in users %}
+        {% if session['user_id'] == recipe.user.id %}
         <tr>
             <td>{{ recipe.name }}</td>
             <td>{{ recipe.under }}</td>
-            <td>{{ recipe.first_name }} {{ recipe.last_name }}</td>
-            <td>
-                <a href="">veiw recipe</a> |
-                <a href="">edit</a> |
-                <a href="">delete</a>
+            <td>{{ recipe.user['first_name'] }} {{ recipe.user['last_name'] }}</td>
+            <td> <!-- need to find a way to connect user_id and user.id -->
+                <a href="/recipes/{{ recipe.id }}/show">veiw recipe</a> |
+                <a href="/recipes/{{ recipe.id }}/edit">edit</a> |
+                <a href="/recipes/{{ recipe.id }}/delete">delete</a>
             </td>
         </tr>
+        {% endif %}
+        {% if session['user_id'] != recipe.user.id %}
+        <tr>
+            <td>{{ recipe.name }}</td>
+            <td>{{ recipe.under }}</td>
+            <td>{{ recipe.user['first_name'] }} {{ recipe.user['last_name'] }}</td>
+            <td><a href="/recipes/{{ recipe.id }}/show">veiw recipe</a></td>
+        </tr>
+        {% endif %}
         {% endfor %}
     </table>
 

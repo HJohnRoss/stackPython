@@ -11,7 +11,42 @@
 </head>
 
 <body>
-
+    <div class="d-flex justify-content-evenly m-3">
+        <h1>Add a new Recipe!</h1>
+        <div class="d-flex gap-3" style="width: 200px;">
+            <a href="/back_home">Back to recipes</a>
+            <a href="/logout">logout</a>
+        </div>
+    </div>
+    <form action="/new_recipe/edit/success" method="post">
+        <div class="d-flex gap-5 justify-content-center">
+            <div class="d-flex flex-column">
+                {% for message in get_flashed_messages() %}
+                <p class="text-danger">{{ message }}</p>
+                {% endfor %}
+                <label>Name: </label>
+                <input value="{{ one_recipe[0].name }}" type="text" name="name">
+                <label>Description</label>
+                <textarea name="description" cols="30" rows="10">{{ one_recipe[0].description }}</textarea>
+                <label>Instructions</label>
+                <textarea name="instructions" cols="30" rows="10">{{ one_recipe[0].instructions }}</textarea>
+            </div>
+            <div>
+                <div class="mb-3">
+                    <p>Date Cooked/Made:</p>
+                    <input value="{{one_recipe[0].date_made}}" type="date" name="date_made">
+                    <p>Under 30 minutes</p>
+                    <input value="True" type="radio" name="under" checked>
+                    <label>Yes</label>
+                    <input value="False" type="radio" name="under">
+                    <label>No</label>
+                    <input type="hidden" name="user_id" value="{{ session['user_id'] }}">
+                    <input type="hidden" name="id" value="{{ one_recipe[0].id }}">
+                </div>
+                <button class="btn btn-primary">Update Recipe</button>
+            </div>
+        </div>
+    </form>
 
 
 
