@@ -10,12 +10,12 @@
     <title>Edit Recipe</title>
 </head>
 
-<body>
+<body class="bg-secondary">
     <div class="d-flex justify-content-evenly m-3">
         <h1>Add a new Recipe!</h1>
-        <div class="d-flex gap-3" style="width: 200px;">
-            <a href="/back_home">Back to recipes</a>
-            <a href="/logout">logout</a>
+        <div class="d-flex gap-3 align-items-center" style="width: 250px;">
+            <a class="btn btn-primary" href="/back_home">Back to recipes</a>
+            <a class="btn btn-danger" href="/logout">logout</a>
         </div>
     </div>
     <form action="/new_recipe/edit/success" method="post">
@@ -43,7 +43,7 @@
                     <input type="hidden" name="user_id" value="{{ session['user_id'] }}">
                     <input type="hidden" name="id" value="{{ one_recipe[0].id }}">
                 </div>
-                <button class="btn btn-primary">Update Recipe</button>
+                <button class="btn btn-success">Update Recipe</button>
             </div>
         </div>
     </form>

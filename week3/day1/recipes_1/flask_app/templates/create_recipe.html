@@ -10,12 +10,12 @@
     <title>Create Recipe</title>
 </head>
 
-<body>
+<body class="bg-secondary">
     <div class="d-flex justify-content-evenly m-3">
         <h1>Add a new Recipe!</h1>
-        <div class="d-flex gap-3" style="width: 200px;">
-            <a href="/back_home">Back to recipes</a>
-            <a href="/logout">logout</a>
+        <div class="d-flex gap-3 align-items-center" style="width: 250px;">
+            <a class="btn btn-primary" href="/back_home">Back to recipes</a>
+            <a class="btn btn-danger" href="/logout">logout</a>
         </div>
     </div>
     <form action="/new_recipe/create" method="post">
@@ -25,25 +25,25 @@
                 <p class="text-danger">{{ message }}</p>
                 {% endfor %}
                 <label>Name: </label>
-                <input type="text" name="name">
+                <input class="form-control" type="text" name="name">
                 <label>Description</label>
-                <textarea name="description" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="description" cols="30" rows="10"></textarea>
                 <label>Instructions</label>
-                <textarea name="instructions" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="instructions" cols="30" rows="10"></textarea>
             </div>
             <div>
                 <div class="mb-3">
                     <p>Date Cooked/Made:</p>
-                    <input value="date_made" type="date" name="date_made">
+                    <input class="form-control" value="date_made" type="date" name="date_made">
                     <!-- <input type="text" name="date_made"> -->
                     <p>Under 30 minutes</p>
-                    <input value="True" type="radio" name="under">
+                    <input class="custom-control-label" value="True" type="radio" name="under">
                     <label>Yes</label>
                     <input value="False" type="radio" name="under">
                     <label>No</label>
-                    <input type="hidden" name="user_id" value="{{ session['user_id'] }}">
+                    <input class="custom-control-label" type="hidden" name="user_id" value="{{ session['user_id'] }}">
                 </div>
-                <button class="btn btn-primary">Create Recipe</button>
+                <button class="btn btn-success">Create Recipe</button>
             </div>
         </div>
     </form>

@@ -10,25 +10,25 @@
     <title>One Recipe</title>
 </head>
 
-<body>
+<body class="bg-secondary">
     <div class="d-flex justify-content-evenly">
         <h1>Welcome, {{ session['user_name'] }}</h1>
-        <div class="d-flex align-items-center gap-3" style="width: 200px;">
-            <a href="/backhome">back to recipes</a>
-            <a href="/logout">logout</a>
+        <div class="d-flex align-items-center gap-3" style="width: 250px;">
+            <a class="btn btn-primary" href="/back_home">back to recipes</a>
+            <a class="btn btn-danger" href="/logout">logout</a>
         </div>
     </div>
     <div class="d-flex justify-content-evenly">
         <h1>{{ one_recipe[0].name }}</h1>
-        <div>
-            <h1>Posted By: {{ one_recipe[0].user.first_name }}</h1>
-        </div>
+        <h1>Posted By: {{ one_recipe[0].user.first_name }}</h1>
     </div>
-    <div>
-        <p>Description: {{ one_recipe[0].description }}</p>
-        <p>Under 30 Minutes?: {{ one_recipe[0].under }}</p>
-        <p>Instructions: {{ one_recipe[0].instructions }}</p>
-        <p>Date Made: {{ one_recipe[0].date_made }}</p>
+    <div class="d-flex justify-content-center mt-5">
+        <div class="bg-dark text-light p-4">
+            <p>Description: {{ one_recipe[0].description }}</p>
+            <p>Under 30 Minutes?: {{ one_recipe[0].under }}</p>
+            <p>Instructions: {{ one_recipe[0].instructions }}</p>
+            <p>Date Made: {{ one_recipe[0].date_made }}</p>
+        </div>
     </div>
 
 
