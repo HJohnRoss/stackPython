@@ -11,22 +11,34 @@
 </head>
 
 <body>
-    <h1>Welcome, </h1> <!-- User name -->
-    <div class="d-flex justify-content-between">
-        <h3>All posted recipes</h3>
-        <a href="">+ Create</a>
-        <a href="/logout">logout</a>
+    <h1>Welcome, {{ session['user_name'] }}</h1> <!-- User name -->
+    <div class="d-flex justify-content-between m-3">
+        <h3>All posted recipes:</h3>
+        <div class="d-flex justify-content-between" style="width: 200px;">
+            <a href="/new_recipe/show">+ Create</a>
+            <a href="/logout">logout</a>
+        </div>
     </div>
-    <table>
+    <table class="table">
         <tr>
             <th>Name</th>
-            <th>Under</th>
+            <th>Under 30 mins</th>
             <th>Posted By</th>
             <th>Actions</th>
         </tr>
+        
+        {% for recipe in users.recipe %}
         <tr>
-            
+            <td>{{ recipe.name }}</td>
+            <td>{{ recipe.under }}</td>
+            <td>{{ recipe.first_name }} {{ recipe.last_name }}</td>
+            <td>
+                <a href="">veiw recipe</a> |
+                <a href="">edit</a> |
+                <a href="">delete</a>
+            </td>
         </tr>
+        {% endfor %}
     </table>
 
 

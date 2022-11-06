@@ -5,6 +5,8 @@ from flask import render_template, redirect, request, session
 from flask_app import app
 bcrypt = Bcrypt(app)
 
+# register a user
+
 
 @app.route('/register/user', methods=['POST'])
 def register_user():
@@ -13,18 +15,23 @@ def register_user():
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     print(pw_hash)
     data = {
-        'first_name' : request.form['first_name'],
-        'last_name' : request.form['last_name'],
-        'email' : request.form['email'],
-        'password' : pw_hash
+        'first_name': request.form['first_name'],
+        'last_name': request.form['last_name'],
+        'email': request.form['email'],
+        'password': pw_hash
     }
     user_id = user_model.User.create_user(data)
     session['user_id'] = user_id
-    return redirect('/recipes/show_all')
+    data = {'email': request.form['email']}
+    user_in_db = user_model.User.get_by_user(data)
+    session['user_name'] = user_in_db.first_name
+    return redirect(f'/recipes/{session["user_id"]}/show_all')
 
+
+# login a user
 @app.route('/login/user', methods=['POST'])
 def login_user():
-    data = {'email' : request.form['email']}
+    data = {'email': request.form['email']}
     user_in_db = user_model.User.get_by_user(data)
     if not user_in_db:
         flash('Invalid email/password', 'login')
@@ -33,9 +40,13 @@ def login_user():
         flash('Invalid email/password', 'login')
         return redirect('/')
     session['user_id'] = user_in_db.id
-    return redirect('/recipes/show_all')
+    session['user_name'] = user_in_db.first_name
+    return redirect(f'/recipes/{session["user_id"]}/show_all')
 
+
+# logout user
 @app.route('/logout')
 def logout():
     del session['user_id']
+    del session['user_name']
     return redirect('/')

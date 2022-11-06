@@ -9,11 +9,17 @@ bcrypt = Bcrypt(app)
 @app.route('/')
 def main():
     if 'user_id' in session:
-        return redirect('/recipes/show_all')
+        return redirect(f'/recipes/{session["user_id"]}/show_all')
     return render_template("login.html")
 
-@app.route('/recipes/show_all')
-def all_recipes():
+
+@app.route('/recipes/<int:id>/show_all')
+def all_recipes(id):
     if not 'user_id' in session:
         return redirect('/')
-    return render_template('all_recipes.html')
+    return render_template('all_recipes.html', users=user_model.User.get_user_recipes())
+
+
+@app.route('/back_home')
+def home():
+    return redirect(f'/recipes/{session["user_id"]}/show_all')
