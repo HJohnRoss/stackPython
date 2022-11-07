@@ -74,20 +74,20 @@ class User:
     #         return False
     #     recipes = cls(result[0])
     #     for row in result:
-    #         data = {
-    #             **row,
-    #             'id' : row['users.id'],
-    #             'created_at' : row['created_at']
-    #         }
-    #         #     {
-    #         #     'id': row['id'],
-    #         #     'first_name': row['first_name'],
-    #         #     'last_name': row['last_name'],
-    #         #     'email': row['email'],
-    #         #     'password': row['password'],
-    #         #     'created_at': row['created_at'],
-    #         #     'updated_at': row['updated_at']
-    #         # }]
+            # data = [{
+            #     **row,
+            #     'id' : row['users.id'],
+            #     'created_at' : row['created_at']
+            # },
+            #     {
+            #     'id': row['id'],
+            #     'first_name': row['first_name'],
+            #     'last_name': row['last_name'],
+            #     'email': row['email'],
+            #     'password': row['password'],
+            #     'created_at': row['created_at'],
+            #     'updated_at': row['updated_at']
+            # }]
     #         this_user = recipe_model.Recipe(data)
     #         recipes.user = this_user
     #         recipes.recipe.append(recipes)
