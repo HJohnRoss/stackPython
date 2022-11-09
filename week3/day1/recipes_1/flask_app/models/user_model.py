@@ -4,7 +4,7 @@ from flask_app import DATABASE
 from flask import flash
 from flask_app.models import recipe_model
 import re
-EMAIL_REGEX = re.compile(r'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+')
+EMAIL_REGEX = re.compile(r'[^@ \t\r\n]+@[^z@ \t\r\n]+\.[^@ \t\r\n]+')
 
 
 class User:
