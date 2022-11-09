@@ -6,6 +6,7 @@ import re
 from flask_app.models import user_model
 EMAIL_REGEX = re.compile(r'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+')
 
+
 class Recipe:
     def __init__(self, data):
         self.id = data['id']
@@ -15,7 +16,9 @@ class Recipe:
         self.date_made = data['date_made']
         self.under = data['under']
         self.user_id = data['user_id']
-        
+        self.created_at = data['created_at']
+        self.updated_at = data['updated_at']
+
     @classmethod
     def one_to_many(cls):
         query = """
@@ -28,15 +31,15 @@ class Recipe:
             recipes = cls(row)
             data = {
                 **row,
-                'id' : row['users.id'],
-                'created_at' : row['users.created_at'],
-                'updated_at' : row['users.updated_at']
+                'id': row['users.id'],
+                'created_at': row['users.created_at'],
+                'updated_at': row['users.updated_at']
             }
             this_user = user_model.User(data)
             recipes.user = this_user
             recipe.append(recipes)
         return recipe
-    
+
     @classmethod
     def save(cls, data):
         query = """
@@ -45,8 +48,7 @@ class Recipe:
         """
         result = connectToMySQL(DATABASE).query_db(query, data)
         return result
-    
-    
+
     @classmethod
     def update(cls, data):
         query = """
@@ -56,9 +58,7 @@ class Recipe:
         """
         result = connectToMySQL(DATABASE).query_db(query, data)
         return result
-    
-    
-    
+
     @classmethod
     def get_one(cls, data):
         query = """
@@ -72,16 +72,15 @@ class Recipe:
             recipe = cls(row)
             data = {
                 **row,
-                'id' : row['users.id'],
-                'created_id' : row['users.created_at'],
-                'updated_at' : row['users.updated_at']
+                'id': row['users.id'],
+                'created_id': row['users.created_at'],
+                'updated_at': row['users.updated_at']
             }
             this_user = user_model.User(data)
             recipe.user = this_user
             one_recipe.append(recipe)
         return one_recipe
 
-    
     @classmethod
     def delete(cls, data):
         query = """
@@ -90,8 +89,7 @@ class Recipe:
         """
         result = connectToMySQL(DATABASE).query_db(query, data)
         return result
-    
-    
+
     @staticmethod
     def validate(recipe):
         is_valid = True
